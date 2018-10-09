@@ -35,7 +35,7 @@ DrKonqi: The KDE Crash Handler
 
 %files -f %{name}.lang
 %{_sysconfdir}/xdg/drkonqi.categories
-%{_libexecdir}/drkonqi
+%{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
 %{_kde5_datadir}/drkonqi
 
