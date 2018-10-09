@@ -43,12 +43,12 @@ DrKonqi: The KDE Crash Handler
 
 %prep
 %autosetup -p1
+%cmake_kde5
 
 %build
-%cmake_kf5 -DSYSCONF_INSTALL_DIR="%{_sysconfdir}"
-%make_build
+%ninja -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 %find_lang %{name} --all-name
