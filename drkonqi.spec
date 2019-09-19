@@ -1,10 +1,12 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.16.5
+Version:	5.16.90
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Source0:	http://download.kde.org/stable/plasma/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 URL:		https://www.kde.org/
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Core)
@@ -34,7 +36,7 @@ Conflicts:	kdebase4-workspace < 2:4.11.23
 DrKonqi: The KDE Crash Handler
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/drkonqi.categories
+%{_datadir}/qlogging-categories5/drkonqi.categories
 %{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
 %{_kde5_datadir}/drkonqi
