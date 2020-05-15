@@ -28,6 +28,7 @@ BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5IdleTime)
+BuildRequires:	cmake(KF5SyntaxHighlighting)
 Conflicts:	plasma-workspace < 5.12.0
 # duplicated files with KDE 4
 Conflicts:	kdebase4-workspace < 2:4.11.23
