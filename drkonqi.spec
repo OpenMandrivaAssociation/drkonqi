@@ -2,7 +2,7 @@
 
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.19.4
+Version:	5.19.5
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -37,7 +37,7 @@ Conflicts:	kdebase4-workspace < 2:4.11.23
 DrKonqi: The KDE Crash Handler
 
 %files -f %{name}.lang
-%{_datadir}/qlogging-categories5/drkonqi.categories
+%{_datadir}/qlogging-categories5/%{name}.categories
 %{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
 %{_kde5_datadir}/drkonqi
