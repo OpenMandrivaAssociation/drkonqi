@@ -1,8 +1,8 @@
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.22.1
+Version:	5.22.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -34,7 +34,7 @@ Conflicts:	plasma-workspace < 5.12.0
 Conflicts:	kdebase4-workspace < 2:4.11.23
 
 %description
-DrKonqi: The KDE Crash Handler
+DrKonqi: The KDE Crash Handler.
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories5/%{name}.categories
