@@ -2,7 +2,7 @@
 
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.22.5
+Version:	5.22.90
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -29,6 +29,7 @@ BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5IdleTime)
 BuildRequires:	cmake(KF5SyntaxHighlighting)
+BuildRequires:	systemd pkgconfig(systemd)
 Conflicts:	plasma-workspace < 5.12.0
 # duplicated files with KDE 4
 Conflicts:	kdebase4-workspace < 2:4.11.23
@@ -41,6 +42,13 @@ DrKonqi: The KDE Crash Handler.
 %{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
 %{_kde5_datadir}/drkonqi
+%{_prefix}/lib/systemd/system/drkonqi-coredump-processor@.service
+%{_prefix}/lib/systemd/user/drkonqi-coredump-cleanup.service
+%{_prefix}/lib/systemd/user/drkonqi-coredump-cleanup.timer
+%{_prefix}/lib/systemd/user/drkonqi-coredump-launcher.socket
+%{_prefix}/lib/systemd/user/drkonqi-coredump-launcher@.service
+%{_libdir}/libexec/drkonqi-*
+%{_libdir}/qt5/plugins/drkonqi/KDECoredumpNotifierTruck.so
 
 #--------------------------------------------------------------------
 
