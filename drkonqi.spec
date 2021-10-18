@@ -29,7 +29,10 @@ BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5IdleTime)
 BuildRequires:	cmake(KF5SyntaxHighlighting)
-BuildRequires:	systemd pkgconfig(systemd)
+BuildRequires:	systemd-coredump
+BuildRequires:	systemd-rpm-macros
+BuildRequires:	pkgconfig(systemd)
+Requires:	systemd-coredump
 Conflicts:	plasma-workspace < 5.12.0
 # duplicated files with KDE 4
 Conflicts:	kdebase4-workspace < 2:4.11.23
@@ -42,11 +45,12 @@ DrKonqi: The KDE Crash Handler.
 %{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
 %{_kde5_datadir}/drkonqi
-%{_prefix}/lib/systemd/system/drkonqi-coredump-processor@.service
-%{_prefix}/lib/systemd/user/drkonqi-coredump-cleanup.service
-%{_prefix}/lib/systemd/user/drkonqi-coredump-cleanup.timer
-%{_prefix}/lib/systemd/user/drkonqi-coredump-launcher.socket
-%{_prefix}/lib/systemd/user/drkonqi-coredump-launcher@.service
+%{_presetdir}/86-%{name}.preset
+%{_unitdir}/drkonqi-coredump-processor@.service
+%{_userunitdir}/drkonqi-coredump-cleanup.service
+%{_userunitdir}/drkonqi-coredump-cleanup.timer
+%{_userunitdir}/drkonqi-coredump-launcher.socket
+%{_userunitdir}/drkonqi-coredump-launcher@.service
 %{_libdir}/libexec/drkonqi-*
 %{_libdir}/qt5/plugins/drkonqi/KDECoredumpNotifierTruck.so
 
@@ -54,7 +58,7 @@ DrKonqi: The KDE Crash Handler.
 
 %prep
 %autosetup -p1
-%cmake_kde5
+%cmake_kde5 -DKDE_INSTALL_SYSTEMDUNITDIR=%{_systemd_util_dir} -DSYSTEMD_USER_UNIT_INSTALL_DIR=%{_userunitdir}
 
 %build
 %ninja -C build
@@ -62,4 +66,24 @@ DrKonqi: The KDE Crash Handler.
 %install
 %ninja_install -C build
 
+install -d %{buildroot}%{_presetdir}
+cat > %{buildroot}%{_presetdir}/86-%{name}.preset << EOF
+enable drkonqi-coredump-processor@.service
+EOF
+
 %find_lang %{name} --all-name
+
+%post
+%systemd_post drkonqi-coredump-processor@.service
+%systemd_user_post drkonqi-coredump-cleanup.timer
+%systemd_user_post drkonqi-coredump-launcher.socket
+
+%preun
+%systemd_preun drkonqi-coredump-processor@.service
+%systemd_user_preun drkonqi-coredump-cleanup.timer
+%systemd_user_preun drkonqi-coredump-launcher.socket
+
+%postun
+%systemd_postun drkonqi-coredump-processor@.service
+%systemd_user_postun drkonqi-coredump-cleanup.timer
+%systemd_user_postun drkonqi-coredump-launcher.socket
