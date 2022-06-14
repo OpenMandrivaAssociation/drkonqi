@@ -2,8 +2,8 @@
 
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.24.5
-Release:	2
+Version:	5.25.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
@@ -41,9 +41,11 @@ Conflicts:	kdebase4-workspace < 2:4.11.23
 DrKonqi: The KDE Crash Handler.
 
 %files -f %{name}.lang
+%{_bindir}/drkonqi-coredump-gui
 %{_datadir}/qlogging-categories5/%{name}.categories
 %{_libdir}/libexec/drkonqi
 %{_kde5_datadir}/applications/org.kde.drkonqi.desktop
+%{_kde5_datadir}/applications/org.kde.drkonqi.coredump.gui.desktop
 %{_kde5_datadir}/drkonqi
 %{_presetdir}/86-%{name}.preset
 %{_unitdir}/drkonqi-coredump-processor@.service
