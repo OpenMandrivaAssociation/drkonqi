@@ -29,6 +29,7 @@ BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5IdleTime)
 BuildRequires:	cmake(KF5SyntaxHighlighting)
+BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	systemd-coredump
 BuildRequires:	systemd-rpm-macros
 BuildRequires:	pkgconfig(systemd)
