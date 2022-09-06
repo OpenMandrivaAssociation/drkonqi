@@ -2,7 +2,7 @@
 
 Summary:	DrKonqi: The KDE Crash Handler
 Name:		drkonqi
-Version:	5.25.4
+Version:	5.25.5
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
