@@ -30,6 +30,7 @@ BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5IdleTime)
 BuildRequires:	cmake(KF5SyntaxHighlighting)
 BuildRequires:	cmake(KF5Declarative)
+BuildRequires:	cmake(KUserFeedback)
 BuildRequires:	systemd-coredump
 BuildRequires:	systemd-rpm-macros
 BuildRequires:	pkgconfig(systemd)
