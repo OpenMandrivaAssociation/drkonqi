@@ -4,7 +4,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: drkonqi
-Version: 6.5.0
+Version: 6.5.1
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/%{gitbranch}/drkonqi-%{gitbranchd}.tar.bz2#/drkonqi-%{git}.tar.bz2
