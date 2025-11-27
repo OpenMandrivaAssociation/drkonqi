@@ -5,7 +5,7 @@
 
 Name: drkonqi
 Version: 6.5.3
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/%{gitbranch}/drkonqi-%{gitbranchd}.tar.bz2#/drkonqi-%{git}.tar.bz2
 %else
