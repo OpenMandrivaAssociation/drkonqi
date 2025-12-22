@@ -5,7 +5,7 @@
 
 Name: drkonqi
 Version: 6.5.4
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/%{gitbranch}/drkonqi-%{gitbranchd}.tar.bz2#/drkonqi-%{git}.tar.bz2
 %else
@@ -60,6 +60,8 @@ Requires: python%{pyver}dist(psutil)
 Requires: python%{pyver}dist(pygdbmi)
 Requires: python%{pyver}dist(sentry-sdk)
 Requires: systemd-coredump
+# There's a runtime dependency on eu-unstrip
+Requires: elfutils
 # Renamed after 6.0 2025-04-27
 %rename plasma6-drkonqi
 
