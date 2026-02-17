@@ -4,7 +4,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: drkonqi
-Version: 6.5.5
+Version: 6.6.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/%{gitbranch}/drkonqi-%{gitbranchd}.tar.bz2#/drkonqi-%{git}.tar.bz2
@@ -80,7 +80,7 @@ Crash handler for KDE software
 %{_libdir}/libexec/drkonqi-coredump-cleanup
 %{_libdir}/libexec/drkonqi-coredump-launcher
 %{_libdir}/libexec/drkonqi-coredump-processor
-%{_qtdir}/plugins/drkonqi
+%{_datadir}/knotifications6/drkonqi-coredump-launcher.notifyrc
 %{_datadir}/applications/org.kde.drkonqi.coredump.gui.desktop
 %{_datadir}/applications/org.kde.drkonqi.desktop
 %{_datadir}/drkonqi
